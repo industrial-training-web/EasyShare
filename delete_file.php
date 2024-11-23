@@ -18,7 +18,7 @@ if ($_GET['action'] == 'delete') {
     $user_id = $_GET['user_id'];
     $file_id = $_GET['file_id'];
 
-    echo "Real Path: " . realpath($filePath) . "<br>";
+    //echo "Real Path: " . realpath($filePath) . "<br>";
 
     if (file_exists($filePath)) {
         if (unlink($filePath)) {
