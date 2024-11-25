@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2024 at 04:05 PM
+-- Generation Time: Nov 25, 2024 at 10:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,17 +33,18 @@ CREATE TABLE `resource` (
   `user_id` int(12) NOT NULL,
   `file_type` varchar(128) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `file_name` varchar(256) DEFAULT NULL
+  `file_name` varchar(256) DEFAULT NULL,
+  `ip_address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `resource`
 --
 
-INSERT INTO `resource` (`id`, `resource_name`, `user_id`, `file_type`, `date`, `file_name`) VALUES
-(10, 'data structure', 4, 'pdf', '2024-11-18', 'uploads/ComputerGraphics-Book.pdfd49bdc709646c5c12947d637bde6948d.pdf'),
-(11, 'my pic', 5, 'jpg', '2024-11-18', 'uploads/ct-2.jpg09fd50b287e0e080d70791cded92dd5c.jpg'),
-(12, 'Ariful Islam', 5, 'jpg', '2024-11-18', 'uploads/IMG_20241014_210451.jpg8d466d0463ff8594ed8b973cc61eaba1.jpg');
+INSERT INTO `resource` (`id`, `resource_name`, `user_id`, `file_type`, `date`, `file_name`, `ip_address`) VALUES
+(25, 'data structure', 5, 'pdf', '2024-11-24', 'uploads/data structure====pdf====2024-11-23====Ariful Islam====ComputerGraphics-Book.pdf5f0e88614fe7f67dc519934fc8608c3d.pdf', '192.168.0.114'),
+(26, 'Computer Graphics', 5, 'pdf', '2024-11-24', 'uploads/Computer Graphics====pdf====2024-11-23====Ariful Islam====ComputerGraphics-Book.pdfe7ed716407a6d94c80e272781fe25883.pdf', '192.168.0.114'),
+(27, 'Computer Graphics CT-2', 5, 'jpg', '2024-11-24', 'uploads/Computer Graphics CT-2====jpg====2024-11-23====Ariful Islam====ct-2.jpge9616ae3c3cc3d68db97ea002842b352.jpg', '192.168.0.114');
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user`
