@@ -105,7 +105,7 @@ $baseUrl = $easyShare->getBaseUrl();
             <li class="nav-item">
                 <a class="nav-link" href="all_share.php">
                     <i class="fas fa-fw fa-box-open"></i>
-                    <span>All Resource</span></a>
+                    <span>All Shared Link</span></a>
             </li>
 
             <!-- Divider -->
