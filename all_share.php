@@ -13,6 +13,26 @@ $res = $easyShare->find_all_resource();
 
 $baseUrl = $easyShare->getBaseUrl();
 
+include_once "./api/request_ipaddress.php";
+include_once "./api/target_url.php";
+
+$result = requestSharedIpAddress($remoteUrl);
+
+$dataArray = json_decode($result, true);
+
+// Check if the decoding was successful
+if (json_last_error() === JSON_ERROR_NONE) {
+    // // Output the PHP array
+    // echo "<pre>";
+    // print_r($dataArray);
+    // echo "</pre>";
+} else {
+    // Output error message if JSON decoding fails
+    echo "Error decoding JSON: " . json_last_error_msg();
+}
+// print_r($result);
+
+
 ?>
 
 
@@ -99,7 +119,7 @@ $baseUrl = $easyShare->getBaseUrl();
             <li class="nav-item">
                 <a class="nav-link" href="all_share.php">
                     <i class="fas fa-fw fa-box-open"></i>
-                    <span>All Resource</span></a>
+                    <span>All Shared Link</span></a>
             </li>
 
             <!-- Divider -->
@@ -188,7 +208,8 @@ $baseUrl = $easyShare->getBaseUrl();
                                     <th>Resource Name</th>
                                     <th>File Type</th>
                                     <th>Date</th>
-                                    <th>Downlod</th>
+                                    <th>Sender</th>
+                                    <th>Visit Resource Link</th>
 
                                 </tr>
                             </thead>
@@ -197,13 +218,16 @@ $baseUrl = $easyShare->getBaseUrl();
                                     <th>Resource Name</th>
                                     <th>File Type</th>
                                     <th>Date</th>
-                                    <th class="text-center">Downlod</th>
-
+                                    <th>Sender</th>
+                                    <th>Visit Resource Link</th>
                                 </tr>
                             </tfoot>
                             <tbody>
 
-                                <?php while ($row = mysqli_fetch_assoc($res)) { ?>
+                                <?php $i = 0;
+                                $len = count($dataArray);
+                                while ($len-- >= 0) {
+                                    $row = $dataArray[$i]; ?>
 
                                     <tr>
                                         <td>
@@ -224,20 +248,28 @@ $baseUrl = $easyShare->getBaseUrl();
                                             }
                                             ?>
                                         </td>
+                                        <td>
+                                            <?php
+                                            if ($row['sender'] != null) {
 
-                                        <?php if ($row['file_name'] == null) { ?>
+                                                echo $row['sender'];
+                                            }
+                                            ?>
+                                        </td>
+
+                                        <?php if ($row['ip_address'] == null) { ?>
                                             <td class="text-center">
-                                                file not found
+                                                link not found
                                             </td>
 
                                         <?php } else { ?>
 
 
                                             <td class="text-center">
-                                                <a href="<?php echo ($row['file_name'] != null) ? $baseUrl . $row['file_name'] : '#'; ?>"
-                                                    download
+                                                <a href="http://<?php echo ($row['ip_address'] != null) ? $row['ip_address'] . '/EasyShare/public_share.php' : '#'; ?>"
+
                                                     class="btn btn-primary btn-circle btn-sm">
-                                                    <i class="fas fa-download"></i>
+                                                    <i class="fas fa-arrow-right"></i>
                                                 </a>
                                             </td>
 
