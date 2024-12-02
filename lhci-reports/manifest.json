@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost/EasyShare/",
+    "isRepresentativeRun": true,
+    "htmlPath": "E:\\new_xampp\\htdocs\\EasyShare\\lhci-reports\\localhost-_EasyShare_-2024_12_02_16_48_43.report.html",
+    "jsonPath": "E:\\new_xampp\\htdocs\\EasyShare\\lhci-reports\\localhost-_EasyShare_-2024_12_02_16_48_43.report.json",
+    "summary": {
+      "performance": 0.83,
+      "accessibility": 0.92,
+      "best-practices": 0.96,
+      "seo": 0.9
+    }
+  }
+]

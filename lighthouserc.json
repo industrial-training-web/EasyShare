@@ -1,0 +1,14 @@
+{
+    "ci": {
+        "collect": {
+            "url": [
+                "http://localhost/EasyShare/"
+            ],
+            "numberOfRuns": 1
+        },
+        "upload": {
+            "target": "filesystem",
+            "outputDir": "./lhci-reports"
+        }
+    }
+}
