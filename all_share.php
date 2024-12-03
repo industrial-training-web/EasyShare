@@ -205,9 +205,9 @@ if (json_last_error() === JSON_ERROR_NONE) {
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Resource Name</th>
+                                    <!-- <th>Resource Name</th>
                                     <th>File Type</th>
-                                    <th>Date</th>
+                                    <th>Date</th> -->
                                     <th>Sender</th>
                                     <th>Visit Resource Link</th>
 
@@ -215,9 +215,9 @@ if (json_last_error() === JSON_ERROR_NONE) {
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Resource Name</th>
+                                    <!-- <th>Resource Name</th>
                                     <th>File Type</th>
-                                    <th>Date</th>
+                                    <th>Date</th> -->
                                     <th>Sender</th>
                                     <th>Visit Resource Link</th>
                                 </tr>
@@ -230,7 +230,7 @@ if (json_last_error() === JSON_ERROR_NONE) {
                                     $row = $dataArray[$i]; ?>
 
                                     <tr>
-                                        <td>
+                                        <!-- <td>
                                             <?php if ($row['resource_name'] != null) {
                                                 echo $row['resource_name'];
                                             } ?>
@@ -247,7 +247,7 @@ if (json_last_error() === JSON_ERROR_NONE) {
                                                 echo $formattedDate;
                                             }
                                             ?>
-                                        </td>
+                                        </td> -->
                                         <td>
                                             <?php
                                             if ($row['sender'] != null) {

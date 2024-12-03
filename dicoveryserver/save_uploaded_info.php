@@ -10,14 +10,28 @@ $resourceName = $_POST['resourceName'] ?? null;
 $ipAddress = $_POST['ipAddress'] ?? null;
 
 // Function to save resource
-function save_resource($conn, $userid, $fileName, $fileType, $resourceName, $ipAddress)
+// function save_resource($conn, $userid, $fileName, $fileType, $resourceName, $ipAddress)
+// {
+//     $query = "INSERT INTO `resource` (`resource_name`, `user_id`, `file_type`, `date`, `file_name`, `ip_address`)
+//               VALUES (?, ?, ?, CURDATE(), ?, ?)";
+
+//     $stmt = $conn->prepare($query);
+
+//     $stmt->bind_param("sisss", $resourceName, $userid, $fileType, $fileName, $ipAddress);
+
+//     $result = $stmt->execute();
+
+//     $stmt->close();
+//     return $result;
+// }
+function save_resource($conn, $userid, $ipAddress)
 {
     $query = "INSERT INTO `resource` (`resource_name`, `user_id`, `file_type`, `date`, `file_name`, `ip_address`)
               VALUES (?, ?, ?, CURDATE(), ?, ?)";
 
     $stmt = $conn->prepare($query);
 
-    $stmt->bind_param("sisss", $resourceName, $userid, $fileType, $fileName, $ipAddress);
+    $stmt->bind_param("is",  $userid, $ipAddress);
 
     $result = $stmt->execute();
 
@@ -25,7 +39,7 @@ function save_resource($conn, $userid, $fileName, $fileType, $resourceName, $ipA
     return $result;
 }
 
-$result = save_resource($conn, $userid, $fileName, $fileType, $resourceName, $ipAddress);
+$result = save_resource($conn, $userid,  $ipAddress);
 
 if ($result) {
     echo "IP Address added in remote server!";
